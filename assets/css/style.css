@@ -186,6 +186,23 @@ select {
   border: 1px solid #ecf0f3; }
 
 /* @@@@@@@@@@@@@  Global CSS  @@@@@@@@@@@@@@ */
+.custom-style .button-group .lab-btn.style-2 span {
+  color: white;
+  margin-bottom: 0;
+}
+.custom-style .button-group .lab-btn.style-2:hover {
+  background: white;
+}
+.custom-style .button-group .lab-btn.style-2:hover span {
+  color: #ff3372;
+}
+.custom-style .code p:first-child {
+  font-size: 2rem;
+}
+.custom-style .code p:last-child {
+  font-size: 4em;
+  font-weight: 900;
+}
 /* @@@@@@@@@@@@@  Header Section Start Here  @@@@@@@@@@@@@@ */
 .section-header {
   text-align: center;
@@ -4542,6 +4559,12 @@ div#example_filter {
           font-size: 36px; } }
     .fore-zero-page .text-content .lab-btn {
       margin-top: 20px; }
+
+/* @@@@@@@@@@@@@  Sponsor section @@@@@@@@@@@@@ */
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
 
 /* @@@@@@@@@@@@@  Footer Section Start Here  @@@@@@@@@@@@@@ */
 footer {
