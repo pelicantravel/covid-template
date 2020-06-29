@@ -24,7 +24,7 @@
 		<div class="mobile-menu">
 			<nav class="mobile-header">
 				<div class="header-logo">
-					<a href="index.html"><img src="assets/images/logo/02.png" alt="logo"></a>
+					<a href="index.html"><img src="assets/images/logo/pelikan_logo.png" alt="logo"></a>
 				</div>
 				<div class="header-bar">
 					<span></span>
@@ -55,7 +55,7 @@
 				<div class="container">
 					<div class="primary-menu">
 						<div class="logo">
-							<a href="index.html"><img src="assets/images/logo/02.png" alt="logo"></a>
+							<a href="index.html"><img src="assets/images/logo/pelikan_logo.png" alt="logo"></a>
                         </div>
 						<div class="main-area">
 							<div class="main-menu">
@@ -231,13 +231,32 @@
         <!-- about section start here -->
 
         <!-- Team Member Section Start here -->
-        <div class="team-section home-2 padding-tb" style="background-image: url(assets/css/bg-image/team-bg.jpg);">
+        <div class="team-section home-2 padding-tb" style="background-image: url(assets/css/bg-image/corona_bg.png);background-size: cover;">
             <div class="container">
                 <div class="section-header wow fadeInUp custom-style" data-wow-delay="0.1s">
                     <h2>Mám záujem o test</h2>
                     <p>Jedinou spoľahlivou cestou ako zistiť prítomnosť koronavírusu v tele sú v súčastnosti PCR testy</p>
-                    <div class="button-group">
-                        <a href="https://www.laboratornadiagnostika.sk/samoplatcovia/detail/prevencia-chorob/pcr-test-na-ochorenie-covid-19" target="_blank" class="lab-btn style-2"><span>Objednať sa</span></a>
+                    <div class="row">
+                        <div class="col-12 mb-2">
+                            <form class="form-inline justify-content-center mt-3 mt-md-0">
+                                <div class="form-group mt-2 mr-1">
+                                    <label for="staticEmail2" class="sr-only">Email</label>
+                                    <input type="text" class="form-control" id="staticEmail1" placeholder="email@domena.sk">
+                                </div>
+                                <button type="button" class="btn btn-outline-light mb-2" id="submitBtn1">Získaj kód</button>
+                            </form>
+                        </div>
+                        <div class="col-12">
+                            <div class="button-group">
+                                <a href="https://www.laboratornadiagnostika.sk/samoplatcovia/detail/prevencia-chorob/pcr-test-na-ochorenie-covid-19" target="_blank" class="lab-btn style-2"><span>Objednať sa</span></a>
+                            </div>
+                        </div>
+                        <div class="code-section col-12 pt-5 d-none" id="code-section1">
+                            <div class="code">
+                                <p class="mb-0">Váš kód je:</p>
+                                <p>KORONA5</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -363,27 +382,27 @@
         <!-- corona count section ending here -->
 
 		<!-- Team Member Section Start here -->
-        <div class="team-section home-2 padding-tb" style="background-image: url(assets/css/bg-image/team-bg.jpg);">
+        <div class="team-section home-2 padding-tb" style="background-image: url(assets/css/bg-image/corona_bg.png);background-size: cover;">
             <div class="container">
                 <div class="section-header wow fadeInUp custom-style" data-wow-delay="0.1s">
                     <h2>Zľava na test</h2>
                     <p>Jedinou spoľahlivou cestou ako zistiť prítomnosť koronavírusu v tele sú v súčastnosti PCR testy</p>
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="button-group">
-                                <a href="https://www.laboratornadiagnostika.sk/samoplatcovia/detail/prevencia-chorob/pcr-test-na-ochorenie-covid-19" target="_blank" class="lab-btn style-2"><span>Objednať sa</span></a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
+                        <div class="col-12 mb-2">
                             <form class="form-inline justify-content-center mt-3 mt-md-0">
                                 <div class="form-group mt-2 mr-1">
                                     <label for="staticEmail2" class="sr-only">Email</label>
                                     <input type="text" class="form-control" id="staticEmail2" placeholder="email@domena.sk">
                                 </div>
-                                <button type="button" class="btn btn-outline-light mb-2" id="submitBtn">Získaj kód</button>
+                                <button type="button" class="btn btn-outline-light mb-2" id="submitBtn2">Získaj kód</button>
                             </form>
                         </div>
-                        <div class="code-section col-12 pt-5 d-none">
+                        <div class="col-12">
+                            <div class="button-group">
+                                <a href="https://www.laboratornadiagnostika.sk/samoplatcovia/detail/prevencia-chorob/pcr-test-na-ochorenie-covid-19" target="_blank" class="lab-btn style-2"><span>Objednať sa</span></a>
+                            </div>
+                        </div>
+                        <div class="code-section col-12 pt-5 d-none" id="code-section2">
                             <div class="code">
                                 <p class="mb-0">Váš kód je:</p>
                                 <p>KORONA5</p>
@@ -552,7 +571,7 @@
         <!-- faq section ending here -->
 
 		<!-- Blog Section Start Here -->
-		<section class="blog-section home-2 padding-tb" style="background-image: url(assets/css/bg-image/team-bg.jpg);">
+		<section class="blog-section home-2 padding-tb" style="background-image: url(assets/css/bg-image/corona_bg.png);background-size: cover;">
             <div class="container">
 				<div class="section-header wow fadeInUp" data-wow-delay="0.1s">
                     <h2>#pelipecky</h2>
@@ -653,6 +672,13 @@
 									</div>
 								</div>
 							</div>
+                            <div class="swiper-slide">
+                                <div class="sponsor-item">
+                                    <div class="sponsor-thumb">
+                                        <a href="https://pelipecky.sk" target="_blank"><img src="assets/images/logo/pelipecky.png" alt="Pelipecky sponzor"></a>
+                                    </div>
+                                </div>
+                            </div>
 							<div class="swiper-slide">
 								<div class="sponsor-item">
 									<div class="sponsor-thumb">
@@ -699,13 +725,22 @@
         <script src="assets/js/functions.js"></script>
 
         <script>
-            var emailInput = document.getElementById("staticEmail2");
-            const getCode = document.getElementById("submitBtn");
-            const codeSection = document.querySelector(".code-section");
+            var emailInput1 = document.getElementById("staticEmail1");
+            var emailInput2 = document.getElementById("staticEmail2");
+            const getCode1 = document.getElementById("submitBtn1");
+            const getCode2 = document.getElementById("submitBtn2");
+            const codeSection1 = document.querySelector(".code-section#code-section1");
+            const codeSection2 = document.querySelector(".code-section#code-section2");
 
-            getCode.addEventListener("click", function () {
-                if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput.value)) {
-                    return codeSection.classList.remove("d-none");
+            getCode1.addEventListener("click", function () {
+                if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput1.value)) {
+                    return codeSection1.classList.remove("d-none");
+                }
+            });
+
+            getCode2.addEventListener("click", function () {
+                if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput2.value)) {
+                    return codeSection2.classList.remove("d-none");
                 }
             });
         </script>

@@ -74,7 +74,7 @@
         // sponsor slider section
         var swiper = new Swiper('.sponsor-slider', {
             slidesPerView: 6,
-            spaceBetween: 10,
+            spaceBetween: 50,
             autoplay: {
                 delay: 5000,
                 disableOnInteraction: false,
