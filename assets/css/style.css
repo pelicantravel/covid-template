@@ -253,9 +253,7 @@ select {
     .service-item .service-inner .service-thumb img {
       width: 93px;
       height: 93px;
-      -webkit-border-radius: 100%;
-      -moz-border-radius: 100%;
-      border-radius: 100%; }
+    }
   .service-item .service-inner .service-content h4 {
     margin-bottom: 5px;
     -webkit-transition: all 0.3s ease;
@@ -2264,7 +2262,8 @@ div#example_filter {
   height: 450px;
   top: 0;
   left: 0;
-  background: url(../../assets/css/bg-image/corona-bg.jpg) no-repeat; }
+  background: url(../../assets/css/bg-image/corona_bg.svg) no-repeat;
+  background-size: contain; }
 .corona-count-section.home-2 .section-header, .corona-count-section.home-2 .corona-wrap {
   z-index: 1; }
 .corona-count-section.home-2 .section-header h2, .corona-count-section.home-2 .section-header p {
@@ -2531,10 +2530,8 @@ div#example_filter {
   @media (max-width: 991px) {
     .about-section .about-thumb {
       margin-bottom: 30px; } }
-  .about-section .about-thumb img {
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    border-radius: 100%; }
+.about-section .about-thumb img {
+  width: 100%; }
   .about-section .about-content .ab-title > span {
     display: inline-block;
     color: #f77a10;
@@ -2551,6 +2548,9 @@ div#example_filter {
         -webkit-border-radius: 100%;
         -moz-border-radius: 100%;
         border-radius: 100%; }
+      .about-section .about-content .ab-title ul li .ab-thumb img {
+        width: 100%;
+      }
       .about-section .about-content .ab-title ul li .ab-content {
         width: calc(100% - 95px); }
         .about-section .about-content .ab-title ul li .ab-content h6 {
