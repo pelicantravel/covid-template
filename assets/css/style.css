@@ -207,6 +207,9 @@ select {
 .custom-style .form-control {
   border-radius: 2rem;
 }
+.custom-style .code-section a {
+  padding-bottom: 5px;
+}
 /* @@@@@@@@@@@@@  Header Section Start Here  @@@@@@@@@@@@@@ */
 .section-header {
   text-align: center;
