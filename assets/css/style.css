@@ -1635,8 +1635,8 @@ div#example_filter {
       .banner-section .banner-area .section-wrapper .banner-thumb img {
         max-width: none; } }
   .banner-section.home-2 {
-    background: url(../../assets/images/banner/home-2/01.jpg) #06264d;
-    background-position: top right;
+    background: url(../../assets/images/banner/home-2/01.png) #06264d;
+    background-position: top center;
     background-repeat: no-repeat; }
     @media (min-width: 992px) {
       .banner-section.home-2 {
@@ -2263,7 +2263,7 @@ div#example_filter {
   top: 0;
   left: 0;
   background: url(../../assets/css/bg-image/corona_bg.svg) no-repeat;
-  background-size: contain; }
+  background-size: cover; }
 .corona-count-section.home-2 .section-header, .corona-count-section.home-2 .corona-wrap {
   z-index: 1; }
 .corona-count-section.home-2 .section-header h2, .corona-count-section.home-2 .section-header p {
