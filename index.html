@@ -158,6 +158,9 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row justify-content-center pb-5">
+                            <a href="#objednat-sa" class="lab-btn"><span>Objednať sa</span></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -229,7 +232,7 @@
         <!-- about section start here -->
 
         <!-- Team Member Section Start here -->
-        <div class="team-section home-2 padding-tb" style="background-image: url(assets/css/bg-image/corona_bg.svg);background-size: cover;">
+        <div class="team-section home-2 padding-tb" style="background-image: url(assets/css/bg-image/corona_bg.svg);background-size: cover;" id="objednat-sa">
             <div class="container">
                 <div class="section-header wow fadeInUp custom-style" data-wow-delay="0.1s">
                     <h2>Zľava na test</h2>
@@ -733,31 +736,49 @@
             const thirdthirdSection = document.querySelector(".button-3-3");
 
             firstBtn.addEventListener("click", function () {
+                firstBtn.classList.add("active");
+                secondBtn.classList.remove("active");
+                thirdBtn.classList.remove("active");
                 firstSection.classList.remove("d-none");
                 secondSection.classList.add("d-none");
                 thirdSection.classList.add("d-none");
             });
             firstfirstBtn.addEventListener("click", function () {
+                firstfirstBtn.classList.add("active");
+                secondsecondBtn.classList.remove("active");
+                thirdthirdBtn.classList.remove("active");
                 firstfirstSection.classList.remove("d-none");
                 secondsecondSection.classList.add("d-none");
                 thirdthirdSection.classList.add("d-none");
             });
             secondBtn.addEventListener("click", function () {
+                secondBtn.classList.add("active");
+                firstBtn.classList.remove("active");
+                thirdBtn.classList.remove("active");
                 secondSection.classList.remove("d-none");
                 firstSection.classList.add("d-none");
                 thirdSection.classList.add("d-none");
             });
             secondsecondBtn.addEventListener("click", function () {
+                secondsecondBtn.classList.add("active");
+                firstfirstBtn.classList.remove("active");
+                thirdthirdBtn.classList.remove("active");
                 secondsecondSection.classList.remove("d-none");
                 firstfirstSection.classList.add("d-none");
                 thirdthirdSection.classList.add("d-none");
             });
             thirdBtn.addEventListener("click", function () {
+                thirdBtn.classList.add("active");
+                secondBtn.classList.remove("active");
+                firstBtn.classList.remove("active");
                 thirdSection.classList.remove("d-none");
                 firstSection.classList.add("d-none");
                 secondSection.classList.add("d-none");
             });
             thirdthirdBtn.addEventListener("click", function () {
+                thirdthirdBtn.classList.add("active");
+                secondsecondBtn.classList.remove("active");
+                firstfirstBtn.classList.remove("active");
                 thirdthirdSection.classList.remove("d-none");
                 firstfirstSection.classList.add("d-none");
                 secondsecondSection.classList.add("d-none");

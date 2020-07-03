@@ -190,10 +190,12 @@ select {
   color: white;
   margin-bottom: 0;
 }
-.custom-style .button-group .lab-btn.style-2:hover {
+.custom-style .button-group .lab-btn.style-2:hover,
+.custom-style .button-group .lab-btn.style-2.active {
   background: white;
 }
-.custom-style .button-group .lab-btn.style-2:hover span {
+.custom-style .button-group .lab-btn.style-2:hover span,
+.custom-style .button-group .lab-btn.style-2.active span {
   color: #f77a10;
 }
 .custom-style .code p:first-child {
