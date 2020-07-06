@@ -220,7 +220,7 @@
             reviewContent.removeClass('review-content-show description-show').addClass(viewRev);
         });
 
-        $(".main-menu ul li a").on('click', function (event) {
+        $("a").on('click', function (event) {
             if (this.hash !== "") {
                 event.preventDefault();
                 var hash = this.hash;
