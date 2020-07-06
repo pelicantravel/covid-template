@@ -1062,7 +1062,8 @@ a > sup {
     box-shadow: 0 0 24px rgba(255, 51, 114, 0.3); }
   .lab-btn.style-2 {
     background: transparent;
-    border: 2px solid #fff; }
+    border: 2px solid #fff;
+    outline: 0 }
     .lab-btn.style-2 span {
       color: #f77a10; }
 
