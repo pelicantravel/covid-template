@@ -212,6 +212,10 @@ select {
 .custom-style .code-section a {
   padding-bottom: 5px;
 }
+.custom-style.app-section {
+  background-color: #002437;
+  color: #FFFFFF;
+}
 /* @@@@@@@@@@@@@  Header Section Start Here  @@@@@@@@@@@@@@ */
 .section-header {
   text-align: center;
