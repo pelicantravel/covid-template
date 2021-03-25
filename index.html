@@ -14,6 +14,13 @@
 		<link rel="stylesheet" href="assets/css/lightcase.css">
 		<link rel="stylesheet" href="assets/css/swiper.min.css">
 		<link rel="stylesheet" href="assets/css/style.css">
+
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/css/uikit.min.css" />
+        
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/js/uikit-icons.min.js"></script>
 		
 		<title>PCR test na COVID-19 - test na ochorenie COVID-19 s certifikátom</title>
         <meta name="title" content="PCR test na COVID-19 - test na ochorenie COVID-19 s certifikátom">
@@ -346,38 +353,30 @@
                     <p>Využite jedinečný kód od Pelikána, vďaka ktorému sa môžete objednať v ľubovolnom termíne na PCR test na ochorenie COVID-19. Vyberte dôvod, pre ktorý potrebujete PCR test - či už je to plánovaná cesta, návrat zo zahraničia, alebo len pre váš dobrý pocit a istotu, že ste zdraví. Po kliknutí na príslušné tlačidlo získate kód a budete sa môcť objednať na PCR test.</p>
                     <div class="row">
                         <div class="col-12">
-                            <div class="button-group">
-                                <button type="button" class="lab-btn style-2 btn-1 mb-2"><span>Cestujem do zahraničia</span></button>
-                                <button type="button" class="lab-btn style-2 btn-2 mb-2"><span>Vraciam sa domov</span></button>
-                                <button type="button" class="lab-btn style-2 btn-3 mb-2"><span>Chcem mať istotu</span></button>
-                            </div>
-                        </div>
-                        <div class="code-section col-12 pt-5 d-none button-1">
-                            <div class="code">
-                                <p class="mb-0">Váš kód je:</p>
-                                <p>PeliCestujem</p>
-                            </div>
-                            <div class="button-group">
-                                <a href="https://www.medirex.sk/vysetrenie/pcr-test-na-ochorenie-covid-19" target="_blank" class="lab-btn"><span>Využiť kód</span></a>
-                            </div>
-                        </div>
-                        <div class="code-section col-12 pt-5 d-none button-2">
-                            <div class="code">
-                                <p class="mb-0">Váš kód je:</p>
-                                <p>PeliDomov</p>
-                            </div>
-                            <div class="button-group">
-                                <a href="https://www.medirex.sk/vysetrenie/pcr-test-na-ochorenie-covid-19" target="_blank" class="lab-btn"><span>Využiť kód</span></a>
-                            </div>
-                        </div>
-                        <div class="code-section col-12 pt-5 d-none button-3">
-                            <div class="code">
-                                <p class="mb-0">Váš kód je:</p>
-                                <p>PeliIstota</p>
-                            </div>
-                            <div class="button-group">
-                                <a href="https://www.medirex.sk/vysetrenie/pcr-test-na-ochorenie-covid-19" target="_blank" class="lab-btn"><span>Využiť kód</span></a>
-                            </div>
+                            <section class="uk-grid-small uk-grid-match uk-margin" uk-grid>
+                                <div class="uk-width-expand">
+                                    <input type="email" class="uk-input uk-form-large uk-margin-small" placeholder="Váš e-mail" id="email" required>
+                                    <input type="text" class="uk-input uk-form-large uk-margin-small" placeholder="Váš peli zľavový kód" id="peliKupon" required>
+                                </div>
+                                <div class="uk-width-auto">
+                                    <button class="uk-button uk-button-default uk-button-large" onclick="checkCoupon();" id="checkBtn">Zameniť kupón</button>
+                                </div>
+                            </section>
+                            
+                            <section class="uk-section-default exchangeCouponSection">
+                                <hr class="uk-divider-icon">
+                                <div class="uk-card uk-card-default uk-text-center" hidden>
+                                    <span class="uk-label uk-position-top-right"></span>
+                                    <div class="uk-card-body">
+                                        <p></p>
+                                        <input class="uk-input uk-form-large uk-width-auto uk-text-center" disabled>
+                                    </div>
+                                    <div class="uk-card-footer">
+                                        <button class="uk-button uk-button-default uk-button-small" id="copy">Skopírovať kupón</button>
+                                        <a href="#" target="_blank" class="uk-button uk-button-secondary uk-button-small">Uplatniť kupón</a>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                     </div>
                 </div>
@@ -834,70 +833,10 @@
 		<script src="assets/js/wow.min.js"></script>
         <script src="assets/js/functions.js"></script>
 
-        <script>
-            const firstBtn = document.querySelector(".btn-1");
-            const firstfirstBtn = document.querySelector(".btn-1-1");
-            const secondBtn = document.querySelector(".btn-2");
-            const secondsecondBtn = document.querySelector(".btn-2-2");
-            const thirdBtn = document.querySelector(".btn-3");
-            const thirdthirdBtn = document.querySelector(".btn-3-3");
-
-            const firstSection = document.querySelector(".button-1");
-            const firstfirstSection = document.querySelector(".button-1-1");
-            const secondSection = document.querySelector(".button-2");
-            const secondsecondSection = document.querySelector(".button-2-2");
-            const thirdSection = document.querySelector(".button-3");
-            const thirdthirdSection = document.querySelector(".button-3-3");
-
-            firstBtn.addEventListener("click", function () {
-                firstBtn.classList.add("active");
-                secondBtn.classList.remove("active");
-                thirdBtn.classList.remove("active");
-                firstSection.classList.remove("d-none");
-                secondSection.classList.add("d-none");
-                thirdSection.classList.add("d-none");
-            });
-            firstfirstBtn.addEventListener("click", function () {
-                firstfirstBtn.classList.add("active");
-                secondsecondBtn.classList.remove("active");
-                thirdthirdBtn.classList.remove("active");
-                firstfirstSection.classList.remove("d-none");
-                secondsecondSection.classList.add("d-none");
-                thirdthirdSection.classList.add("d-none");
-            });
-            secondBtn.addEventListener("click", function () {
-                secondBtn.classList.add("active");
-                firstBtn.classList.remove("active");
-                thirdBtn.classList.remove("active");
-                secondSection.classList.remove("d-none");
-                firstSection.classList.add("d-none");
-                thirdSection.classList.add("d-none");
-            });
-            secondsecondBtn.addEventListener("click", function () {
-                secondsecondBtn.classList.add("active");
-                firstfirstBtn.classList.remove("active");
-                thirdthirdBtn.classList.remove("active");
-                secondsecondSection.classList.remove("d-none");
-                firstfirstSection.classList.add("d-none");
-                thirdthirdSection.classList.add("d-none");
-            });
-            thirdBtn.addEventListener("click", function () {
-                thirdBtn.classList.add("active");
-                secondBtn.classList.remove("active");
-                firstBtn.classList.remove("active");
-                thirdSection.classList.remove("d-none");
-                firstSection.classList.add("d-none");
-                secondSection.classList.add("d-none");
-            });
-            thirdthirdBtn.addEventListener("click", function () {
-                thirdthirdBtn.classList.add("active");
-                secondsecondBtn.classList.remove("active");
-                firstfirstBtn.classList.remove("active");
-                thirdthirdSection.classList.remove("d-none");
-                firstfirstSection.classList.add("d-none");
-                secondsecondSection.classList.add("d-none");
-            });
-        </script>
+        <script defer src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+        <script defer src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+        <script defer src="assets/js/get_code.js"></script>
 
         <script type="application/javascript" src="https://cdn.pelikan.sk/app/whitelabels/app.min.js" async defer></script>
 	</body>
