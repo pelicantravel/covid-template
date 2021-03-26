@@ -65,6 +65,7 @@ function checkCoupon() {
 
 			function validEntry() {
 				searchQuery.classList.remove('uk-form-danger');
+				checkCouponBtn.classList.add('uk-disabled');
 				checkCouponBtn.setAttribute('disabled', '');
 				email.setAttribute('disabled', '');
 				searchQuery.setAttribute('disabled', '');
