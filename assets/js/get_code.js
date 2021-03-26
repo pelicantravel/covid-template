@@ -46,6 +46,16 @@ function runSpinner() {
 	checkCouponBtn.innerHTML = '';
 }
 
+function getObject(object, string) {
+	var result;
+	if (!object || typeof object !== 'object') return;
+	Object.values(object).some(v => {
+		if (v === string) return result = object;
+		return result = getObject(v, string);
+	});
+	return result;
+}
+
 function checkCoupon() {
 	const allCoupons = db.collection("coupons").doc("u06NPpMpuEyLXxwApD5s");
 	if (email.checkValidity() && searchQuery.checkValidity()) {
@@ -53,15 +63,12 @@ function checkCoupon() {
 		checkFormValidation(email);
 		checkFormValidation(searchQuery);
 		allCoupons.get().then((doc) => {
-			function getObject(object, string) {
-				var result;
-				if (!object || typeof object !== 'object') return;
-				Object.values(object).some(v => {
-					if (v === string) return result = object;
-					return result = getObject(v, string);
-				});
-				return result;
-			}
+			const medirexCoupons = doc.data().medirexCoupons;
+			const usedPeliCoupon = getObject(medirexCoupons, searchQuery.value);
+			const usedEmail = getObject(medirexCoupons, email.value);
+			const texts = doc.data().texts;
+			const btnCopy = document.querySelector('.exchangeCouponSection .uk-card-footer div:nth-child(1) > button');
+			const btnApply = document.querySelector('.exchangeCouponSection .uk-card-footer div:nth-child(2) > a');
 
 			function validEntry() {
 				searchQuery.classList.remove('uk-form-danger');
@@ -69,7 +76,7 @@ function checkCoupon() {
 				checkCouponBtn.setAttribute('disabled', '');
 				email.setAttribute('disabled', '');
 				searchQuery.setAttribute('disabled', '');
-				if (usedPeliCoupon && searchQuery.value !== texts.usableCoupon) {
+				if ((usedPeliCoupon && searchQuery.value !== texts.usableCoupon) || (usedPeliCoupon && searchQuery.value === texts.usableCoupon && usedEmail)) {
 					descriptionText.innerHTML = texts.descriptionSuccessOver.replace('variable', `${searchQuery.value}`);	
 				} else {
 					descriptionText.innerHTML = texts.descriptionSuccess.replace('variable', `${searchQuery.value}`);	
@@ -83,28 +90,19 @@ function checkCoupon() {
 			}
 
 			function addBtnSetting() {
-				const btnCopy = document.querySelector('.exchangeCouponSection .uk-card-footer .uk-button:nth-child(1)');
-				const btnApply = document.querySelector('.exchangeCouponSection .uk-card-footer .uk-button:nth-child(2)');
-
 				btnCopy.innerHTML = texts.btnCopy;
 				btnApply.innerHTML = texts.btnApply;
 				btnApply.setAttribute('href', `${texts.btnApplyUrl}`);
 			}
 
-			document.querySelector("#copy").addEventListener("click", function () {
+			btnCopy.addEventListener("click", () => {
 				navigator.clipboard.writeText(targetQuery.value)
 				UIkit.notification(`${texts.notifCopy}`, { status: 'success' });
 			});
-
-			const medirexCoupons = doc.data().medirexCoupons;
-			const usedPeliCoupon = getObject(medirexCoupons, searchQuery.value);
-			const usedEmail = getObject(medirexCoupons, email.value);
-			const texts = doc.data().texts;
 			
 			if (doc.data().peliCoupons.includes(searchQuery.value) && (!usedPeliCoupon || (usedPeliCoupon.peliCoupon === texts.usableCoupon && !usedEmail))) {
 				const getValidCoupon = getObject(medirexCoupons, Boolean(0));
 				validEntry();
-				animateSection();
 				
 				if (getValidCoupon) {
 					addBtnSetting();
@@ -132,15 +130,16 @@ function checkCoupon() {
 
 					UIkit.notification(`<span uk-icon="icon: warning"></span> ${texts.notifError}`, { status: 'warning' });
 				}
+				animateSection();
 				runSpinner();
 			} else if (doc.data().peliCoupons.includes(searchQuery.value) && ((usedPeliCoupon && usedPeliCoupon.peliCoupon !== texts.usableCoupon) || (usedPeliCoupon && usedPeliCoupon.peliCoupon === texts.usableCoupon && usedEmail))) {
-				animateSection();
+				validEntry();
 				addBtnSetting();
 				usedPeliCoupon.peliCoupon === texts.usableCoupon && usedEmail ? targetQuery.value = usedEmail.coupon : targetQuery.value = usedPeliCoupon.coupon;
 				label.innerHTML = texts.labelSuccess;
 				label.classList.add('uk-label-success');
 				UIkit.notification(`<span uk-icon="icon: check"></span> ${texts.notifSuccess}`, { status: 'success' });
-				validEntry();
+				animateSection();
 				runSpinner();
 			} else {
 				searchQuery.classList.add('uk-form-danger', 'uk-animation-shake');
