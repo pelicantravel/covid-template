@@ -79,6 +79,7 @@ function checkCoupon() {
 			function animateSection() {
 				document.querySelector('.exchangeCouponSection .uk-card').removeAttribute('hidden');
 				document.querySelector('.exchangeCouponSection .uk-card').classList.add('uk-animation-slide-top-medium');
+				document.querySelector('.exchangeCouponSection hr').classList.remove('uk-margin-remove-bottom');
 			}
 
 			function addBtnSetting() {
