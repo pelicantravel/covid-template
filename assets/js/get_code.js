@@ -1,3 +1,5 @@
+"use strict";
+
 var firebaseConfig = {
 	apiKey: "AIzaSyC5T9OSpE45K_lNDMcSvjc47MEi46bRAAc",
 	authDomain: "covid-testy.firebaseapp.com",
@@ -65,7 +67,7 @@ function checkCoupon() {
 		firebase.auth().signInAnonymously().then(() => {
 			allCoupons.get().then((doc) => {
 				const medirexCoupons = doc.data().medirexCoupons;
-				const usedPeliCoupon = getObject(medirexCoupons, searchQuery.value);
+				const usedPeliCoupon = getObject(medirexCoupons, searchQuery.value.toUpperCase());
 				const usedEmail = getObject(medirexCoupons, email.value);
 				const texts = doc.data().texts;
 				const btnCopy = document.querySelector('.exchangeCouponSection .uk-card-footer div:nth-child(1) > button');
@@ -77,10 +79,10 @@ function checkCoupon() {
 					checkCouponBtn.setAttribute('disabled', '');
 					email.setAttribute('disabled', '');
 					searchQuery.setAttribute('disabled', '');
-					if ((usedPeliCoupon && searchQuery.value !== texts.usableCoupon) || (usedPeliCoupon && searchQuery.value === texts.usableCoupon && usedEmail)) {
-						descriptionText.innerHTML = texts.descriptionSuccessOver.replace('variable', `${searchQuery.value}`);	
+					if ((usedPeliCoupon && searchQuery.value.toUpperCase() !== texts.usableCoupon) || (usedPeliCoupon && searchQuery.value.toUpperCase() === texts.usableCoupon && usedEmail)) {
+						descriptionText.innerHTML = texts.descriptionSuccessOver.replace('variable', `${searchQuery.value.toUpperCase()}`);	
 					} else {
-						descriptionText.innerHTML = texts.descriptionSuccess.replace('variable', `${searchQuery.value}`);	
+						descriptionText.innerHTML = texts.descriptionSuccess.replace('variable', `${searchQuery.value.toUpperCase()}`);	
 					}
 				}
 
@@ -101,7 +103,7 @@ function checkCoupon() {
 					UIkit.notification(`${texts.notifCopy}`, { status: 'success' });
 				});
 				
-				if (doc.data().peliCoupons.includes(searchQuery.value) && (!usedPeliCoupon || (usedPeliCoupon.peliCoupon === texts.usableCoupon && !usedEmail))) {
+				if (doc.data().peliCoupons.includes(searchQuery.value.toUpperCase()) && (!usedPeliCoupon || (usedPeliCoupon.peliCoupon === texts.usableCoupon && !usedEmail))) {
 					const getValidCoupon = getObject(medirexCoupons, Boolean(0));
 					validEntry();
 					
@@ -115,7 +117,7 @@ function checkCoupon() {
 						let localCoupon = medirexCoupons[indexOfValidCoupon];
 						localCoupon.used = true;
 						localCoupon.timestamp = new Date().toISOString();
-						localCoupon.peliCoupon = searchQuery.value;
+						localCoupon.peliCoupon = searchQuery.value.toUpperCase();
 						localCoupon.userEmail = email.value;
 						medirexCoupons[indexOfValidCoupon] = localCoupon;
 						allCoupons.update({
@@ -124,7 +126,7 @@ function checkCoupon() {
 						UIkit.notification(`<span uk-icon="icon: check"></span> ${texts.notifSuccess}`, { status: 'success' });
 					} else {
 						targetQuery.remove();
-						descriptionText.innerHTML = texts.descriptionError.replace('variable', `${searchQuery.value}`);
+						descriptionText.innerHTML = texts.descriptionError.replace('variable', `${searchQuery.value.toUpperCase()}`);
 						document.querySelector('.exchangeCouponSection .uk-card-footer').remove();
 						label.innerHTML = texts.labelError;
 						label.classList.add('uk-label-warning');
@@ -133,7 +135,7 @@ function checkCoupon() {
 					}
 					animateSection();
 					runSpinner();
-				} else if (doc.data().peliCoupons.includes(searchQuery.value) && ((usedPeliCoupon && usedPeliCoupon.peliCoupon !== texts.usableCoupon) || (usedPeliCoupon && usedPeliCoupon.peliCoupon === texts.usableCoupon && usedEmail))) {
+				} else if (doc.data().peliCoupons.includes(searchQuery.value.toUpperCase()) && ((usedPeliCoupon && usedPeliCoupon.peliCoupon !== texts.usableCoupon) || (usedPeliCoupon && usedPeliCoupon.peliCoupon === texts.usableCoupon && usedEmail))) {
 					validEntry();
 					addBtnSetting();
 					usedPeliCoupon.peliCoupon === texts.usableCoupon && usedEmail ? targetQuery.value = usedEmail.coupon : targetQuery.value = usedPeliCoupon.coupon;
