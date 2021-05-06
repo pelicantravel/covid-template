@@ -16,7 +16,6 @@ firebase.analytics();
 
 var db = firebase.firestore();
 
-const searchQuery = document.querySelector('#peliKupon');
 const email = document.querySelector('#email');
 const targetQuery = document.querySelector('.exchangeCouponSection input');
 const label = document.querySelector('.exchangeCouponSection .uk-label');
@@ -60,33 +59,32 @@ function getObject(object, string) {
 
 function checkCoupon() {
 	const allCoupons = db.collection("coupons").doc("u06NPpMpuEyLXxwApD5s");
-	if (email.checkValidity() && searchQuery.checkValidity()) {
+	if (email.checkValidity()) {
 		checkFormValidation(email);
-		checkFormValidation(searchQuery);
 		runSpinner();
 		firebase.auth().signInAnonymously().then(() => {
 			allCoupons.get().then((doc) => {
 				const medirexCoupons = doc.data().medirexCoupons;
-				const usedPeliCoupon = getObject(medirexCoupons, searchQuery.value.toUpperCase());
+				// const usedPeliCoupon = getObject(medirexCoupons, searchQuery.value.toUpperCase());
 				const usedEmail = getObject(medirexCoupons, email.value);
 				const texts = doc.data().texts;
 				const btnCopy = document.querySelector('.exchangeCouponSection .uk-card-footer div:nth-child(1) > button');
 				const btnApply = document.querySelector('.exchangeCouponSection .uk-card-footer div:nth-child(2) > a');
 
 				function validEntry() {
-					searchQuery.classList.remove('uk-form-danger');
 					checkCouponBtn.classList.add('uk-disabled');
 					checkCouponBtn.setAttribute('disabled', '');
 					email.setAttribute('disabled', '');
-					searchQuery.setAttribute('disabled', '');
-					if ((usedPeliCoupon && searchQuery.value.toUpperCase() !== texts.usableCoupon) || (usedPeliCoupon && searchQuery.value.toUpperCase() === texts.usableCoupon && usedEmail)) {
-						descriptionText.innerHTML = texts.descriptionSuccessOver.replace('variable', `${searchQuery.value.toUpperCase()}`);	
+					if (usedEmail) {
+						descriptionText.innerHTML = texts.descriptionSuccessOver.replace('variable', `${email.value}`);	
 					} else {
-						descriptionText.innerHTML = texts.descriptionSuccess.replace('variable', `${searchQuery.value.toUpperCase()}`);	
+						descriptionText.innerHTML = texts.descriptionSuccess.replace('variable', `${email.value}`);
 					}
 				}
 
 				function animateSection() {
+					document.querySelector('.exchangeCouponSection hr').removeAttribute('hidden');
+					document.querySelector('.exchangeCouponSection hr').classList.add('uk-animation-slide-top-medium');
 					document.querySelector('.exchangeCouponSection .uk-card').removeAttribute('hidden');
 					document.querySelector('.exchangeCouponSection .uk-card').classList.add('uk-animation-slide-top-medium');
 					document.querySelector('.exchangeCouponSection hr').classList.remove('uk-margin-remove-bottom');
@@ -103,7 +101,7 @@ function checkCoupon() {
 					UIkit.notification(`${texts.notifCopy}`, { status: 'success' });
 				});
 				
-				if (doc.data().peliCoupons.includes(searchQuery.value.toUpperCase()) && (!usedPeliCoupon || (usedPeliCoupon.peliCoupon === texts.usableCoupon && !usedEmail))) {
+				if (!usedEmail) {
 					const getValidCoupon = getObject(medirexCoupons, Boolean(0));
 					validEntry();
 					
@@ -117,7 +115,6 @@ function checkCoupon() {
 						let localCoupon = medirexCoupons[indexOfValidCoupon];
 						localCoupon.used = true;
 						localCoupon.timestamp = new Date().toISOString();
-						localCoupon.peliCoupon = searchQuery.value.toUpperCase();
 						localCoupon.userEmail = email.value;
 						medirexCoupons[indexOfValidCoupon] = localCoupon;
 						allCoupons.update({
@@ -126,7 +123,7 @@ function checkCoupon() {
 						UIkit.notification(`<span uk-icon="icon: check"></span> ${texts.notifSuccess}`, { status: 'success' });
 					} else {
 						targetQuery.remove();
-						descriptionText.innerHTML = texts.descriptionError.replace('variable', `${searchQuery.value.toUpperCase()}`);
+						descriptionText.innerHTML = texts.descriptionError.replace('variable', `${email.value}`);
 						document.querySelector('.exchangeCouponSection .uk-card-footer').remove();
 						label.innerHTML = texts.labelError;
 						label.classList.add('uk-label-warning');
@@ -135,25 +132,14 @@ function checkCoupon() {
 					}
 					animateSection();
 					runSpinner();
-				} else if (doc.data().peliCoupons.includes(searchQuery.value.toUpperCase()) && ((usedPeliCoupon && usedPeliCoupon.peliCoupon !== texts.usableCoupon) || (usedPeliCoupon && usedPeliCoupon.peliCoupon === texts.usableCoupon && usedEmail))) {
+				} else {
 					validEntry();
 					addBtnSetting();
-					usedPeliCoupon.peliCoupon === texts.usableCoupon && usedEmail ? targetQuery.value = usedEmail.coupon : targetQuery.value = usedPeliCoupon.coupon;
+					targetQuery.value = usedEmail.coupon;
 					label.innerHTML = texts.labelSuccess;
 					label.classList.add('uk-label-success');
 					UIkit.notification(`<span uk-icon="icon: check"></span> ${texts.notifSuccess}`, { status: 'success' });
 					animateSection();
-					runSpinner();
-				} else {
-					searchQuery.classList.add('uk-form-danger', 'uk-animation-shake');
-					setTimeout(() => {
-						searchQuery.classList.remove('uk-animation-shake');
-					}, 500);
-					clicked += 1;
-					if (clicked === 3) {
-						validEntry();
-						UIkit.notification(`<span uk-icon="icon: warning"></span> ${texts.notifInvalidCouponBlocked}`, { status: 'danger' });
-					} else { UIkit.notification(`<span uk-icon="icon: warning"></span> ${texts.notifInvalidCoupon}`, { status: 'danger' }); };
 					runSpinner();
 				}
 			});
@@ -166,8 +152,6 @@ function checkCoupon() {
 		});
 	} else {
 		checkFormValidation(email);
-		checkFormValidation(searchQuery);
 		if (email.validationMessage) UIkit.notification(`<span uk-icon="icon: warning"></span> E-mail: ${email.validationMessage}`, { status: 'danger' });
-		if (searchQuery.validationMessage) UIkit.notification(`<span uk-icon="icon: warning"></span> Kupón: ${searchQuery.validationMessage}`, { status: 'danger' });
 	}
 }

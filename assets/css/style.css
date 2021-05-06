@@ -220,6 +220,17 @@ a.link {
   color: #f77a10;
   text-decoration: underline;
 }
+
+.change-coupon,
+.uk-notification {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+}
+
+#email,
+#peliKupon {
+	font-weight: 300;
+}
 /* @@@@@@@@@@@@@  Header Section Start Here  @@@@@@@@@@@@@@ */
 .section-header {
   text-align: center;

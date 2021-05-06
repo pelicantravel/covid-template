@@ -6,6 +6,8 @@
 		
 		<!-- google fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
 		<link rel="shortcut icon" type="image/x-icon" href="assets/images/x-icon/01.png">
 
         <!-- UIkit CSS -->
@@ -352,11 +354,10 @@
                     <h2>Objednajte sa na PCR test so zľavou</h2>
                     <p>Využite zľavu od Pelikána na PCR test na ochorenie COVID-19. Zadajte váš e-mail a špeciálny Peli kód, ktorý ste získali. Po kliknutí na tlačidlo "Získať zľavu" vám pošleme zľavový kupón, s ktorým sa budete môcť objednať na PCR test za zvýhodnenú cenu.</p>
                     <div class="row">
-                        <div class="col-12 uk-light uk-padding uk-border-rounded" style="background-color: #012131;">
+                        <div class="col-12 change-coupon uk-light uk-padding uk-border-rounded" style="background-color: #012131;">
                             <section class="uk-grid-small uk-grid-match uk-margin" uk-grid>
                                 <div class="uk-width-expand@m">
                                     <input type="email" class="uk-input uk-form-large uk-margin-small" placeholder="Váš e-mail" id="email" required>
-                                    <input type="text" class="uk-input uk-form-large uk-margin-small" placeholder="Váš Peli kód" id="peliKupon" required>
                                 </div>
                                 <div class="uk-width-auto@m">
                                     <button class="uk-button uk-button-default uk-button-large" onclick="checkCoupon();" id="checkBtn">Získať zľavu</button>
@@ -364,7 +365,7 @@
                             </section>
                             
                             <section class="uk-section uk-padding-remove exchangeCouponSection">
-                                <hr class="uk-divider-icon uk-margin-remove-bottom">
+                                <hr class="uk-divider-icon uk-margin-remove-bottom" hidden>
                                 <div class="uk-card uk-text-center" hidden>
                                     <span class="uk-label uk-position-top-center"></span>
                                     <div class="uk-card-body">
