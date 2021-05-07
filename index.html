@@ -7,7 +7,7 @@
 		<!-- google fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
 		<link rel="shortcut icon" type="image/x-icon" href="assets/images/x-icon/01.png">
 
         <!-- UIkit CSS -->
@@ -353,36 +353,89 @@
                 <div class="section-header wow fadeInUp custom-style" data-wow-delay="0.1s">
                     <h2>Objednajte sa na PCR test so zľavou</h2>
                     <p>Využite zľavu od Pelikána na PCR test na ochorenie COVID-19. Zadajte váš e-mail a špeciálny Peli kód, ktorý ste získali. Po kliknutí na tlačidlo "Získať zľavu" vám pošleme zľavový kupón, s ktorým sa budete môcť objednať na PCR test za zvýhodnenú cenu.</p>
-                    <div class="row">
-                        <div class="col-12 change-coupon uk-light uk-padding uk-border-rounded" style="background-color: #012131;">
-                            <section class="uk-grid-small uk-grid-match uk-margin" uk-grid>
-                                <div class="uk-width-expand@m">
-                                    <input type="email" class="uk-input uk-form-large uk-margin-small" placeholder="Váš e-mail" id="email" required>
-                                </div>
-                                <div class="uk-width-auto@m">
-                                    <button class="uk-button uk-button-default uk-button-large" onclick="checkCoupon();" id="checkBtn">Získať zľavu</button>
-                                </div>
-                            </section>
-                            
-                            <section class="uk-section uk-padding-remove exchangeCouponSection">
-                                <hr class="uk-divider-icon uk-margin-remove-bottom" hidden>
-                                <div class="uk-card uk-text-center" hidden>
-                                    <span class="uk-label uk-position-top-center"></span>
-                                    <div class="uk-card-body">
-                                        <p></p>
-                                        <input class="uk-input uk-form-large uk-width-auto uk-text-center" disabled>
-                                    </div>
-                                    <div class="uk-card-footer uk-flex-center uk-grid-small uk-child-width-1-1 uk-child-width-auto@s" uk-grid>
-                                        <div class="uk-child-width-1-1 uk-child-width-auto@s">
-                                            <button class="uk-button uk-button-default uk-button-medium">Skopírovať kupón</button>
-                                        </div>
-                                        <div class="uk-child-width-1-1 uk-child-width-auto@s">
-                                            <a href="#" target="_blank" class="uk-button uk-button-secondary uk-button-medium">Uplatniť kupón</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
+                    <section class="uk-grid-match uk-grid-column-large uk-grid-row-small uk-light uk-margin-large uk-child-width-1-2@m uk-child-width-1-1" uk-grid>
+                        <aside>
+                            <button class="uk-button uk-button-default uk-button-large">Bratislava a okolie</button>
+                        </aside>
+                        <aside>
+                            <button class="uk-button uk-button-default uk-button-large">Iné mesto</button>
+                        </aside>
+                    </section>
+
+                <section class="uk-grid-match uk-grid-small uk-light uk-margin-large uk-child-width-1-4@m uk-child-width-1-1 uk-text-left rychlotest-deals__section" uk-grid>
+                    <a href="#">
+                        <div class="uk-card uk-card-default uk-card-small">
+                            <div class="uk-card-media-top">
+                                <img src="assets/images/rychlotest-covid_bg.png" alt="">
+                            </div>
+                            <div class="uk-card-body">
+                                <h3 class="uk-card-title">COVID Rýchlotest</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                            </div>
                         </div>
+                    </a>
+                    <a href="#">
+                        <article class="uk-card uk-card-default uk-card-small">
+                            <div class="uk-card-media-top">
+                                <img src="assets/images/rychlotest-covid_bg.png" alt="">
+                            </div>
+                            <div class="uk-card-body">
+                                <h3 class="uk-card-title">COVID Rýchlotest</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#">
+                        <article class="uk-card uk-card-default uk-card-small">
+                            <div class="uk-card-media-top">
+                                <img src="assets/images/rychlotest-covid_bg.png" alt="">
+                            </div>
+                            <div class="uk-card-body">
+                                <h3 class="uk-card-title">COVID Rýchlotest</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                            </div>
+                        </article>
+                    </a>
+                    <a href="#">
+                        <article class="uk-card uk-card-default uk-card-small">
+                            <div class="uk-card-media-top">
+                                <img src="assets/images/rychlotest-covid_bg.png" alt="">
+                            </div>
+                            <div class="uk-card-body">
+                                <h3 class="uk-card-title">COVID Rýchlotest</h3>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                            </div>
+                        </article>
+                    </a>
+                </section>
+                    <div class="uk-light uk-padding uk-border-rounded uk-padding" style="background-color: #012131;">
+                        <section class="uk-grid-small uk-grid-match" uk-grid>
+                            <div class="uk-width-expand@m">
+                                <input type="email" class="uk-input uk-form-large uk-margin-small" placeholder="Váš e-mail" id="email" required>
+                            </div>
+                            <div class="uk-width-auto@m">
+                                <button class="uk-button uk-button-default uk-button-large" onclick="checkCoupon();" id="checkBtn">Získať zľavu</button>
+                            </div>
+                        </section>
+                        
+                        <section class="uk-section uk-padding-remove exchangeCouponSection">
+                            <hr class="uk-divider-icon" hidden>
+                            <div class="uk-card uk-text-center" hidden>
+                                <span class="uk-label uk-position-top-center"></span>
+                                <div class="uk-card-body">
+                                    <p></p>
+                                    <input class="uk-input uk-form-large uk-width-auto uk-text-center" disabled>
+                                </div>
+                                <div class="uk-card-footer uk-flex-center uk-grid-small uk-child-width-1-1 uk-child-width-auto@s" uk-grid>
+                                    <div class="uk-child-width-1-1 uk-child-width-auto@s">
+                                        <button class="uk-button uk-button-default uk-button-medium">Skopírovať kupón</button>
+                                    </div>
+                                    <div class="uk-child-width-1-1 uk-child-width-auto@s">
+                                        <a href="#" target="_blank" class="uk-button uk-button-secondary uk-button-medium">Uplatniť kupón</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>

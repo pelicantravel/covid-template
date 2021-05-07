@@ -221,14 +221,20 @@ a.link {
   text-decoration: underline;
 }
 
-.change-coupon,
+.uk-grid *,
+.uk-notification,
+.uk-input {
+	font-family: 'Source Sans Pro', sans-serif !important;
+}
+
+.uk-grid,
 .uk-notification {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 400;
+  font-weight: 400;
 }
 
 #email,
-#peliKupon {
+#peliKupon,
+.uk-input {
 	font-weight: 300;
 }
 /* @@@@@@@@@@@@@  Header Section Start Here  @@@@@@@@@@@@@@ */
@@ -4828,3 +4834,18 @@ body.rtl {
     padding-left: 60px; }
 
 /*# sourceMappingURL=style.css.map */
+
+/* CUSTOM CODE */
+.rychlotest-deals__section.uk-grid .uk-card-body p {
+  color: #666666;
+}
+
+.rychlotest-deals__section a .uk-card {
+  transition: transform 200ms;
+}
+
+.rychlotest-deals__section a:hover .uk-card {
+  transform: scale(1.048) translateZ(0);
+  backface-visibility: hidden;
+  box-shadow: 0 14px 25px rgb(0 0 0 / 80%);
+}
