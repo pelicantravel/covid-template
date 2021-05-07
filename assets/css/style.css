@@ -4836,7 +4836,7 @@ body.rtl {
 /*# sourceMappingURL=style.css.map */
 
 /* CUSTOM CODE */
-.rychlotest-deals__section.uk-grid .uk-card-body p {
+.rychlotest-deals__section .uk-grid .uk-card-body p {
   color: #666666;
 }
 
@@ -4845,7 +4845,7 @@ body.rtl {
 }
 
 .rychlotest-deals__section a:hover .uk-card {
-  transform: scale(1.048) translateZ(0);
+  transform: scale(1.048) translate3d(0,0,0);
   backface-visibility: hidden;
   box-shadow: 0 14px 25px rgb(0 0 0 / 80%);
 }
