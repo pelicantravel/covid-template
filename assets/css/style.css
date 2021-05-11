@@ -4855,3 +4855,8 @@ body.rtl {
   backface-visibility: hidden;
   box-shadow: 0 14px 25px rgb(0 0 0 / 80%);
 }
+
+#chooseBTS,
+#chooseAnother {
+  font-size: 18px;
+}
