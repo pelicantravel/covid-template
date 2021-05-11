@@ -4837,15 +4837,20 @@ body.rtl {
 /*# sourceMappingURL=style.css.map */
 
 /* CUSTOM CODE */
-.rychlotest-deals__section .uk-grid .uk-card-body p {
+.rychlotest-digitalpark__section .uk-grid .uk-card-body p,
+.rychlotest-skypark__section .uk-grid .uk-card-body p {
   color: #666666;
 }
 
-.rychlotest-deals__section a .uk-card {
+.rychlotest-digitalpark__section a .uk-card,
+.rychlotest-skypark__section a .uk-card,
+.rychlotest-type__section .uk-inline {
   transition: transform 200ms;
 }
 
-.rychlotest-deals__section a:hover .uk-card {
+.rychlotest-digitalpark__section a:hover .uk-card,
+.rychlotest-skypark__section a:hover .uk-card,
+.rychlotest-type__section .uk-inline:hover {
   transform: scale(1.048) translate3d(0,0,0);
   backface-visibility: hidden;
   box-shadow: 0 14px 25px rgb(0 0 0 / 80%);
