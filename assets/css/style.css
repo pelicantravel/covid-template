@@ -193,6 +193,7 @@ select {
 .custom-style .button-group .lab-btn.style-2:hover,
 .custom-style .button-group .lab-btn.style-2.active {
   background: white;
+  color: #666;
 }
 .custom-style .button-group .lab-btn.style-2:hover span,
 .custom-style .button-group .lab-btn.style-2.active span {
