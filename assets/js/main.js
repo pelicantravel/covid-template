@@ -3,8 +3,8 @@ const covidTestType = document.querySelector('.rychlotest-type__section');
 const digitalParkSection = document.querySelector('.rychlotest-digitalpark__section');
 const skyParkSection = document.querySelector('.rychlotest-skypark__section');
 
-const btnDigitalPark = document.querySelector('.rychlotest-type__section a:first-of-type');
-const btnSkyPark = document.querySelector('.rychlotest-type__section a:last-of-type');
+const btnSkyPark = document.querySelector('.rychlotest-type__section a:first-of-type');
+const btnDigitalPark = document.querySelector('.rychlotest-type__section a:last-of-type');
 
 const btsBtn = document.querySelector('#chooseBTS');
 const anotherBtn = document.querySelector('#chooseAnother');
