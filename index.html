@@ -405,32 +405,33 @@
                     <div class="uk-container uk-container-xsmall uk-text-center uk-light">
                         <p class="uk-text-secondary">Zadajte váš e-mail, kliknite na tlačidlo „Získať zľavu“ a my vám obratom zašleme zľavový kupón, s ktorým sa budete môcť objednať na PCR test za zvýhodnenú cenu vo vašom meste.</p>
                     </div>
-                    <section class="uk-grid-small uk-grid-match uk-light uk-padding uk-border-rounded uk-margin-large-top uk-margin-small-left uk-margin-small-right" style="background-color: #012131;" uk-grid>
-                        <div class="uk-width-expand@m">
-                            <input type="email" class="uk-input uk-form-large uk-margin-small" placeholder="Váš e-mail" id="email" required>
-                        </div>
-                        <div class="uk-width-auto@m">
-                            <button class="uk-button uk-button-default uk-button-large" onclick="checkCoupon();" id="checkBtn">Získať zľavu</button>
-                        </div>
-                    </section>
-
-                    <section class="uk-section uk-padding-remove exchangeCouponSection">
-                        <hr class="uk-divider-icon" hidden>
-                        <div class="uk-card uk-text-center" hidden>
-                            <span class="uk-label uk-position-top-center"></span>
-                            <div class="uk-card-body">
-                                <p></p>
-                                <input class="uk-input uk-form-large uk-width-auto uk-text-center" disabled>
+                    <section style="background-color: #012131;">
+                        <form action="javascript:void(0)" method="post" class="uk-grid-small uk-grid-match uk-light uk-padding uk-border-rounded uk-margin-large-top uk-margin-small-left uk-margin-small-right" uk-grid>
+                            <div class="uk-width-expand@m">
+                                <input type="email" class="uk-input uk-form-large uk-margin-small" placeholder="Váš e-mail" id="email" required>
                             </div>
-                            <div class="uk-card-footer uk-flex-center uk-grid-small uk-child-width-1-1 uk-child-width-auto@s" uk-grid>
-                                <div class="uk-child-width-1-1 uk-child-width-auto@s">
-                                    <button class="uk-button uk-button-default uk-button-medium">Skopírovať kupón</button>
+                            <div class="uk-width-auto@m">
+                                <button class="uk-button uk-button-default uk-button-large" onclick="checkCoupon();" id="checkBtn">Získať zľavu</button>
+                            </div>
+                        </form>
+                        <section class="uk-section uk-padding-small uk-padding-remove-top exchangeCouponSection uk-light">
+                            <hr class="uk-divider-icon" hidden>
+                            <div class="uk-card uk-text-center" hidden>
+                                <span class="uk-label uk-position-top-center"></span>
+                                <div class="uk-card-body">
+                                    <p></p>
+                                    <input class="uk-input uk-form-large uk-width-auto uk-text-center" disabled>
                                 </div>
-                                <div class="uk-child-width-1-1 uk-child-width-auto@s">
-                                    <a href="#" target="_blank" class="uk-button uk-button-secondary uk-button-medium">Uplatniť kupón</a>
+                                <div class="uk-card-footer uk-flex-center uk-grid-small uk-child-width-1-1 uk-child-width-auto@s" uk-grid>
+                                    <div class="uk-child-width-1-1 uk-child-width-auto@s">
+                                        <button class="uk-button uk-button-default uk-button-medium">Skopírovať kupón</button>
+                                    </div>
+                                    <div class="uk-child-width-1-1 uk-child-width-auto@s">
+                                        <a href="#" target="_blank" class="uk-button uk-button-secondary uk-button-medium">Uplatniť kupón</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </section>
                     </section>
                 </div>
             </div>
