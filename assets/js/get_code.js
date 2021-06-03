@@ -57,6 +57,18 @@ function getObject(object, string) {
   return result;
 }
 
+const download = function (filename, text) {
+  let element = document.createElement('a');
+  element.setAttribute(
+    'href',
+    `data:text/plain;charset=utf-8,${encodeURIComponent(text)}`
+  );
+  element.setAttribute('download', filename);
+  element.style.display = 'none';
+  element.click();
+  document.body.removeChild(element);
+};
+
 function checkCoupon() {
   const allCoupons = db.collection('coupons').doc('u06NPpMpuEyLXxwApD5s');
   if (email.checkValidity()) {
@@ -77,6 +89,16 @@ function checkCoupon() {
           const btnApply = document.querySelector(
             '.exchangeCouponSection .uk-card-footer div:nth-child(2) > a'
           );
+
+          // ********* GROUP ALL EMAILS AND EXPORT IT TO A FILE *********
+          //
+          // const medirexEmails = [];
+          // for (let i = 0; i < medirexCoupons.length; i++) {
+          //   if (medirexCoupons[i].userEmail) {
+          //     medirexEmails.push(medirexCoupons[i].userEmail);
+          //   }
+          // }
+          // download('couponEmails.txt', medirexEmails);
 
           function validEntry() {
             checkCouponBtn.classList.add('uk-disabled');
