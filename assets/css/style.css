@@ -8436,3 +8436,9 @@ body.rtl .help-country .section-wrapper .hc-item .hc-inner .hc-content {
 .card__covid-testy:focus {
   transform: scale(1.05);
 }
+
+@media (max-width: 1600px) {
+  .more-info__header p {
+    font-size: 16px;
+  }
+}
